@@ -140,7 +140,7 @@ with at least one frequent pattern, under each setting of minFreq
 
 a trick for running the challenge above is instead of running the apriori function for each given minimum frequency, 
 we run the apriori algorithm once with minimum frequency with the lowest value and filter accordingly with the other frequencies.
-Thus ensuring efficiency and all the other minimum frequencies are also there
+
 
 '''
 
