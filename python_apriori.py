@@ -88,8 +88,15 @@ def apriori(trans: list, minSupport: float):
     @param trans: a list of transactions, each transaction is also a list 
     @param minSupport: minimum support for apriori algorithm
    
+        minimum support logically should be an integer but due to given challenge was 
+        deriving support from frequency the resulting support could be a float
+
     @return: dictionary of frequent itemsets along with support
     
+    other notes:
+        ci = candidate i-itemset
+        li = i-itemset
+
     """
     
     masterCandidates = {1:{}}
@@ -135,7 +142,7 @@ def apriori(trans: list, minSupport: float):
 ''' 
 
 The challenge was given a txt file where each line represents a transaction of transaction ids, 
-report the number of frequent patterns, as well as the number of size-k frequent patterns for each size k 
+report the number of frequent itemsets, as well as the number of size-k frequent itemsets for each size k 
 with at least one frequent pattern, under each setting of minFreq
 
 a trick for running the challenge above is instead of running the apriori function for each given minimum frequency, 
@@ -151,7 +158,7 @@ trans = [sorted(list(map(int, line.split()))) for line in lines]
 
 minFreqs = [0.0005,0.0004,0.0003,0.0002,0.0001] # the given mininum frequencies
 minFreqs.sort() 
-minSupports = [x*len(trans) for x in minFreqs] # support = num of transactions * frequency
+minSupports = [x*len(trans) for x in minFreqs] # support = num of transactions * frequency (minimum support logically should be an integer but due to given challenge was deriving support from frequency the resulting support could be a float)
 minSupports
 
 ap1 = apriori(trans, minSupports[0]) #running apriori algorithm for minimum frequency of 0.0001
